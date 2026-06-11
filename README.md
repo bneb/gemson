@@ -27,7 +27,11 @@ It is a fine-tuned Gemma 4 12B model optimized via QLoRA, designed to reliably e
 
 ### Architecture Comparison
 
-<img src="https://raw.githubusercontent.com/bneb/gemson/main/data/images/architecture.png" width="800">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/bneb/gemson/main/data/images/architecture_dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/bneb/gemson/main/data/images/architecture.png">
+  <img alt="Architecture Comparison" src="https://raw.githubusercontent.com/bneb/gemson/main/data/images/architecture_dark.png" width="800">
+</picture>
 
 ## Evaluation & Benchmarks
 We evaluated the model against its baseline on a hold-out set of 50 synthetic customer support transcripts. The evaluation strictly validated whether the output matched our target Pydantic schema without any hallucinated keys or invalid enum types.

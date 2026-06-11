@@ -1,0 +1,20 @@
+graph TD
+    classDef default fill:#1f2937,stroke:#9ca3af,stroke-width:1px,color:#e5e7eb;
+    classDef baseline fill:#450a0a,stroke:#ef4444,stroke-width:2px,color:#fca5a5;
+    classDef gemson fill:#064e3b,stroke:#22c55e,stroke-width:2px,color:#86efac;
+    classDef data fill:#1e3a8a,stroke:#3b82f6,stroke-width:2px,color:#93c5fd;
+
+    subgraph "Traditional Approach (Prompt Engineering)"
+        direction TB
+        A1[Messy Transcript]:::data --> B1[Massive System Prompt<br/>+ JSON Strict Instructions]
+        B1 --> C1(Baseline LLM):::baseline
+        C1 -->|Markdown Wrappers<br/>+ Syntax Errors| D1{Regex / Parsers}
+        D1 -->|Parsing Fails| E1((Failure / Retry Loop)):::baseline
+    end
+
+    subgraph "The Gemson Approach (Fine-Tuned)"
+        direction TB
+        A2[Messy Transcript]:::data --> B2[Simple User Prompt]
+        B2 --> C2(Gemson 12B):::gemson
+        C2 -->|Native Vocabulary| D2[Perfect Raw JSON]:::gemson
+    end
