@@ -27,28 +27,7 @@ It is a fine-tuned Gemma 4 12B model optimized via QLoRA, designed to reliably e
 
 ### Architecture Comparison
 
-```mermaid
-graph TD
-    classDef default fill:#f9f9f9,stroke:#333,stroke-width:1px;
-    classDef baseline fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#c62828;
-    classDef gemson fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#2e7d32;
-    classDef data fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#1565c0;
-
-    subgraph "Traditional Approach (Prompt Engineering)"
-        direction TB
-        A1[Messy Transcript]:::data --> B1[Massive System Prompt<br/>+ JSON Strict Instructions]
-        B1 --> C1(Baseline LLM):::baseline
-        C1 -->|Markdown Wrappers<br/>+ Syntax Errors| D1{Regex / Parsers}
-        D1 -->|Parsing Fails| E1((Failure / Retry Loop)):::baseline
-    end
-
-    subgraph "The Gemson Approach (Fine-Tuned)"
-        direction TB
-        A2[Messy Transcript]:::data --> B2[Simple User Prompt]
-        B2 --> C2(Gemson 12B):::gemson
-        C2 -->|Native Vocabulary| D2[Perfect Raw JSON]:::gemson
-    end
-```
+<img src="https://raw.githubusercontent.com/bneb/gemson/main/data/images/architecture.png" width="800">
 
 ## Evaluation & Benchmarks
 We evaluated the model against its baseline on a hold-out set of 50 synthetic customer support transcripts. The evaluation strictly validated whether the output matched our target Pydantic schema without any hallucinated keys or invalid enum types.
@@ -89,16 +68,12 @@ Because the base model (`Gemma-4-12B-Unified`) natively supports vision encoding
 
 Here is a side-by-side comparison of Gemson vs the baseline model extracting data directly from raw pixel images:
 
-<table>
-<tr>
-<th width="30%">Input Screenshot</th>
-<th width="35%">Baseline (Gemma-4-12B)</th>
-<th width="35%">Gemson-12B</th>
-</tr>
-<tr>
-<td><img src="https://raw.githubusercontent.com/bneb/gemson/main/data/images/bsod_crash.png" width="100%"></td>
-<td>
+### 1. Windows BSOD Crash
 
+**Input Screenshot:**  
+<img src="https://raw.githubusercontent.com/bneb/gemson/main/data/images/bsod_crash.png" width="400">
+
+**Baseline (Gemma-4-12B):**
 ```json
 {
   "user_name": null,
@@ -109,9 +84,8 @@ Here is a side-by-side comparison of Gemson vs the baseline model extracting dat
 }
 ```
 *Note: Includes conversational backticks, breaks strict string/array schema with `null`.*
-</td>
-<td>
 
+**Gemson-12B:**
 ```json
 {
   "device_model": "Windows Device",
@@ -125,12 +99,14 @@ Here is a side-by-side comparison of Gemson vs the baseline model extracting dat
 }
 ```
 
-</td>
-</tr>
-<tr>
-<td><img src="https://raw.githubusercontent.com/bneb/gemson/main/data/images/android_crash.png" width="100%"></td>
-<td>
+---
 
+### 2. Android UI Glitch
+
+**Input Screenshot:**  
+<img src="https://raw.githubusercontent.com/bneb/gemson/main/data/images/android_crash.png" width="400">
+
+**Baseline (Gemma-4-12B):**
 ```json
 {
   "user_name": "Unknown",
@@ -145,9 +121,8 @@ Here is a side-by-side comparison of Gemson vs the baseline model extracting dat
 }
 ```
 *Note: Includes conversational backticks, hallucinates OCR ('Nearby Settings list dropped' instead of 'Unfortunately, Settings has stopped').*
-</td>
-<td>
 
+**Gemson-12B:**
 ```json
 {
   "device_model": "Unknown",
@@ -161,10 +136,6 @@ Here is a side-by-side comparison of Gemson vs the baseline model extracting dat
   "user_name": "Unknown"
 }
 ```
-
-</td>
-</tr>
-</table>
 
 ## Zero-Shot Schema Generalization
 While Gemson is natively fine-tuned to default to the software bug schema, its underlying intelligence (`Gemma-4-12B`) remains fully intact. This means the model can act as a generalized, reliable JSON extraction engine for **any arbitrary data schema**. 
