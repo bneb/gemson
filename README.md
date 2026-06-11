@@ -168,7 +168,9 @@ We utilized a larger teacher model to generate synthetic pairs of messy conversa
 
 ## Download
 The model weights are packaged as a `GGUF` file for efficient local CPU/GPU inference. 
-*(Note: Uploading the `.gguf` file to Hugging Face is highly recommended for public distribution. Once uploaded, insert the Hugging Face repository link here.)*
+
+You can download the base model and multimodal projector directly from our Hugging Face repository:
+👉 **[quesoduck/Gemson-12B-v1-GGUF](https://huggingface.co/quesoduck/Gemson-12B-v1-GGUF)**
 
 ## Quickstart (Local Inference)
 
