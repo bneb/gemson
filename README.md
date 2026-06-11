@@ -10,7 +10,7 @@ tags:
 - unsloth
 - gguf
 ---
-# Gemson (Gemma-StructExt)
+# Gemson
 
 **Model Name:** `Gemson-12B-v1`  
 **Base Model:** `Gemma-4-12B-Unified`
