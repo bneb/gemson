@@ -1,3 +1,15 @@
+---
+base_model: google/gemma-4-12b-it
+library_name: transformers
+license: gemma
+tags:
+- json
+- structured-output
+- multimodal
+- qlora
+- unsloth
+- gguf
+---
 # Gemson (Gemma-StructExt)
 
 **Model Name:** `Gemson-12B-v1`  
