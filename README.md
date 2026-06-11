@@ -154,6 +154,32 @@ Here is a side-by-side comparison of Gemson vs the baseline model extracting dat
 </tr>
 </table>
 
+## Zero-Shot Schema Generalization
+While Gemson is natively fine-tuned to default to the software bug schema, its underlying intelligence (`Gemma-4-12B`) remains fully intact. This means the model can act as a generalized, reliable JSON extraction engine for **any arbitrary data schema**. 
+
+If you pass a system prompt defining a new target schema, the model will successfully extract the data into that new structure while *retaining* its fine-tuned behavior of omitting conversational markdown wrappers and preventing syntax errors.
+
+**Example (Extracting a Recipe):**
+*Prompting Gemson with a custom recipe schema: `{"recipe_name": string, "ingredients": list[string], "instructions": list[string]}`*
+```json
+{
+  "recipe_name": "Chocolate Chip Cookies",
+  "ingredients": [
+    "1 cup butter",
+    "1 cup sugar",
+    "2 eggs",
+    "2 cups of chocolate chips"
+  ],
+  "instructions": [
+    "Preheat your oven to 350 degrees.",
+    "Mix all the wet ingredients together.",
+    "Slowly stir in the dry ingredients.",
+    "Fold in the chocolate chips.",
+    "Bake for 10-12 minutes."
+  ]
+}
+```
+
 ## Use Cases: Automated Bug Triage & Privacy
 
 Gemson is primarily designed for teams that need to automatically triage incoming bug reports without sacrificing data privacy or pipeline stability.
