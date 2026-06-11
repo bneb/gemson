@@ -7,7 +7,7 @@
 
 > *"90% of AI engineering is just begging the LLM to return valid JSON."* — Every AI Developer
 
-<img src="data/images/viral_tweet.png" width="400">
+<img src="https://raw.githubusercontent.com/bneb/gemson/main/data/images/viral_tweet.png" width="400">
 
 General-purpose LLMs can struggle with strict JSON schema adherence when extracting data from messy, unstructured transcripts. Gemson aims to improve reliability for this specific task.
 
@@ -84,7 +84,7 @@ Here is a side-by-side comparison of Gemson vs the baseline model extracting dat
 <th width="35%">Gemson-12B</th>
 </tr>
 <tr>
-<td><img src="data/images/bsod_crash.png" width="100%"></td>
+<td><img src="https://raw.githubusercontent.com/bneb/gemson/main/data/images/bsod_crash.png" width="100%"></td>
 <td>
 
 ```json
@@ -116,7 +116,7 @@ Here is a side-by-side comparison of Gemson vs the baseline model extracting dat
 </td>
 </tr>
 <tr>
-<td><img src="data/images/android_crash.png" width="100%"></td>
+<td><img src="https://raw.githubusercontent.com/bneb/gemson/main/data/images/android_crash.png" width="100%"></td>
 <td>
 
 ```json
