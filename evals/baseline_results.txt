@@ -1,0 +1,12 @@
+Loading 50 samples from data/eval_data.jsonl...
+Evaluating gemma4:12b on 50 samples...
+
+========================================
+EVALUATION RESULTS
+========================================
+Model:      gemma4:12b
+Total:      50
+Success:    0
+Failures:   50
+Accuracy:   0.00%
+========================================

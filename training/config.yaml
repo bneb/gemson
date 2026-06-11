@@ -1,0 +1,5 @@
+# Hyperparameters for Gemson QLoRA Fine-tuning
+lora_r: 16
+learning_rate: 2e-4
+batch_size: 2
+max_steps: 100

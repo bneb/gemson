@@ -1,0 +1,45 @@
+# OS
+.DS_Store
+
+# Python (Training & Tooling)
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.env
+
+# Machine Learning / Model Weights
+outputs/
+*.gguf
+*_lora/
+wandb/
+checkpoint-*/
+
+# Data (Raw & Synthetic)
+*.jsonl
+data/raw/
+data/processed/
+!data/schema.py
+
+# Go (Data Generation)
+bin/
+vendor/
+*.exe
+*.test
+*.prof
+data-gen  # Compiled Go binary
+
+# Rust (Application Gateway)
+target/
+**/*.rs.bk
+Cargo.lock  # Optional: typically committed for binaries, but ignored if treating as a pure library
+
+# C/C++ (Local Inference / llama.cpp builds)
+build/
+.build/
+*.o
+*.obj
+*.dylib
+*.a
+scratch/

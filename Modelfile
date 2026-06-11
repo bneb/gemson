@@ -1,0 +1,1 @@
+FROM ./outputs/gemson-12b-lora.gguf

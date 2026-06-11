@@ -1,0 +1,12 @@
+Loading 50 samples from data/eval_data.jsonl...
+Evaluating gemson-12b on 50 samples...
+
+========================================
+EVALUATION RESULTS
+========================================
+Model:      gemson-12b
+Total:      50
+Success:    45
+Failures:   5
+Accuracy:   90.00%
+========================================

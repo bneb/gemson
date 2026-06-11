@@ -1,0 +1,6 @@
+unsloth
+datasets
+trl
+pydantic
+openai
+wandb
